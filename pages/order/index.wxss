@@ -1,0 +1,20 @@
+.item+.item .van-card {
+  margin-top: 2px;
+}
+
+.item .van-card {
+  background: #fff;
+}
+
+.item .van-button {
+  margin-left: 10px;
+}
+
+.tab1Item_total { text-align:right; margin:10px 0; color:#332E1F; font-size:18px;}
+.tabClass .van-cell__title{ font-size:12px;}
+
+.lstOrderItemView {display:inline-block; text-align: center; margin-right:20px;}
+.lstOrderItemViewTxt { font-size:0.7rem; color:rgba(0,0,0,.75); text-align: left;}
+.panelHeaderTab1 { border-top:1px dashed rgb(37, 37, 37);}
+.panelHeaderTab1 .van-cell__title {flex:2;}
+.panelHeaderTab1 .van-cell__value{ color:rgba(0,0,0,.75); }

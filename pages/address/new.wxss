@@ -1,0 +1,14 @@
+/* pages/address/new.wxss */
+
+
+
+.button {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    width: 150px;
+}
+.mt20 { margin-top:20px;}
+.isDefaultDiv { overflow:hidden; height:40px; background:white;}
+.isDefaultDiv .isDefaultDivTitle { display:inline-block; width:100px;}
+.isDefaultSwitch { margin-top:10px;}

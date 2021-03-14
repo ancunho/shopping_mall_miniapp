@@ -1,0 +1,4 @@
+.register { padding:20px; background:#fff;}
+.registerTxt { margin-top:20px; margin-bottom:5px; font-size:12px; font-weight:bold; color:#ff976a;}
+.mtb10 { margin:10px 0!important;}
+.mtb20 { margin:20px 0!important;}

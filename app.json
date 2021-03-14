@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cart/index",
+    "pages/my/index",
+    "pages/detail/index",
+    "pages/order/index",
+    "pages/pay/index",
+    "pages/callCenter/index",
+    "pages/address/index",
+    "pages/customer/register",
+    "pages/address/new"
+  ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1d1f21",
+    "navigationBarTitleText": "Stronghold",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-panel": "@vant/weapp/panel/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-card": "@vant/weapp/card/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-stepper": "@vant/weapp/stepper/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-area": "@vant/weapp/area/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

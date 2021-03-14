@@ -1,0 +1,52 @@
+<view class="container">
+    <view class="cart-box">
+        <!--功能栏-->
+        <view class="option-line">
+            <van-checkbox class="check-all" value="{{ isCheckAll }}" bind:change="onHandlerCheckAll">全选</van-checkbox>
+            <text class="del-button" bindtap="onHandlerDeleteChekcked">删除已选</text>
+        </view>
+
+        <!--商品列表-->
+        <view class="cart-list">
+            <!--商品-->
+            <view class="item" wx:for="{{cartItems}}" wx:key="index" wx:key-item="item">
+                <van-checkbox class="checkbox" data-index="{{index}}" value="{{item.checked}}" bind:change="onHandlerCheckOne"></van-checkbox>
+                <van-image
+                    class="img"
+                    fit="cover"
+                    width="70px"
+                    height="70px"
+                    src="{{item.MAIN_IMAGE}}"
+                />
+                <view class="text">
+                    <text class="title">{{item.PRODUCT_NAME}}</text>
+                    <text class="desc" wx:if="{{item.ATTRIBUTE == '01'}}">{{item.WEIGHT}}Kg</text>
+                    <text class="desc" wx:if="{{item.ATTRIBUTE == '02'}}">{{item.WEIGHT}}</text>
+                    <text class="price">¥ {{item.PRICE}}</text>
+                </view>
+                <van-stepper 
+                    class="button"
+                    min="1"
+                    value="{{ item.QUANTITY }}" 
+                    data-index="{{index}}"
+                    data-specid="{{item.SPEC_SEQ}}"
+                    bind:change="onQtyChange"
+                    />
+            </view>
+            
+        </view>
+
+        <!--<van-empty description="购物车是空的" />-->
+        
+        
+
+        <!--提交栏{{ total * 100 }}-->
+        <van-submit-bar
+            custom-class="submit-box"
+            label=""
+            price=""
+            button-text="去结算"
+            bind:submit="onSubmit"
+        />
+    </view>
+</view>

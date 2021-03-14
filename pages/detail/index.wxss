@@ -1,0 +1,48 @@
+.detail-banner {
+    height: 300px;
+}
+
+.detail-box {
+    padding: 15px 20px;
+}
+
+.detail-box .title-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail-box .title-line .title {
+    font-size: 15px;
+    color: #222;
+    font-weight: bold;
+}
+
+.detail-box .title-line .price {
+    font-size: 17px;
+    color: #C2002F;
+}
+
+.detail-box .param {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+.detail-box .param text {
+    width: 33.33%;
+    font-size: 12px;
+    line-height: 30px;
+}
+
+.detail-box .content {
+    margin-top: 15px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 5px;
+}
+.btnPopupClose { margin-top:10px; text-align: center;}
+.panelBox { padding: 0 20px 20px 20px;}
+.specItem { padding:5px 0; margin:5px 0;}

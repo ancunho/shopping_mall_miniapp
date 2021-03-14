@@ -1,0 +1,103 @@
+<view class="container">
+    <view class="register">
+        <!-- Login Popup Start -->
+        <van-cell-group wx:if="{{showLogin}}">
+            <van-field
+                label="用户名"
+                model:value="{{ username }}"
+                type="text"
+                placeholder="请输入用户名"
+            />
+            <van-field
+                label="密码"
+                model:value="{{ password }}"
+                type="password"
+                placeholder="请输入密码"
+            />
+            <view class="mtb10"><van-button type="info" block bind:click="onLogin">登录</van-button></view>
+            <view class="registerTxt">如果您是新客户或未进行账号授权操作， 请先进行注册并授权使用</view>
+            <view><van-button type="warning" block bind:click="showRegisterPage">前往注册</van-button></view>
+        </van-cell-group>
+        <!-- Login Popup Start -->
+        <!-- Register Popup Start -->
+        <van-cell-group wx:if="{{showRegister}}">
+                <van-field
+                    model:value="{{username}}"
+                    required
+                    label="用户名"
+                    placeholder="请输入用户名"
+                />
+                <van-field
+                    model:value="{{password}}"
+                    required
+                    type="password"
+                    label="密码"
+                    placeholder="请输入密码"
+                />
+                <van-field
+                    model:value="{{checkPassword}}"
+                    required
+                    type="password"
+                    label="确认密码"
+                    bind:focus="checkPassword"
+                    placeholder="请再次输入密码"
+                />
+                <van-field
+                    model:value="{{company}}"
+                    required
+                    label="公司名/个人"
+                    placeholder="请输入公司名或个人姓名"
+                />
+                <van-field
+                    model:value="{{phone}}"
+                    required
+                    label="手机号"
+                    placeholder="请输入手机号"
+                />
+                <van-field
+                    model:value="{{deviceSerial}}"
+                    label="设备序列号"
+                    placeholder="请输入设备序列号"
+                />
+                <van-field
+                    model:value="{{deviceModel}}"    
+                    label="设备型号"
+                    placeholder="请输入设备型号"
+                />
+                <van-field
+                    model:value="{{deviceColor}}"
+                    label="设备颜色"
+                    placeholder="请输入设备颜色"
+                />
+                <van-field
+                    model:value="{{areaValue}}"
+                    required
+                    label="城市"
+                    bind:focus="showArea"
+                    placeholder="请选择城市信息"
+                />
+                <van-field
+                    model:value="{{address}}"
+                    required
+                    label="详细地址"
+                    placeholder="请输入城市地址"
+                />
+                <view class="mtb10"><van-button type="info" block bind:click="onRegister">注册</van-button></view>
+            </van-cell-group>
+            <!-- // Register Popup End -->
+
+            <van-popup
+            show="{{ areaActive }}"
+            bind:close="closeArea"
+            position="bottom"
+            z-index="2001"
+        >
+            <van-area 
+                bind:confirm="confirmArea" 
+                area-list="{{ areaList }}" 
+                bind:cancel="closeArea" />
+        </van-popup>
+
+
+    </view>
+</view>

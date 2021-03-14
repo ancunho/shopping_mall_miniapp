@@ -1,0 +1,50 @@
+<view class="container">
+    <view class="address-box">
+        <van-cell-group>
+            <van-field
+                model:value="{{receiverName}}"
+                required
+                label="收货人"
+                placeholder="请输入收货人"
+            />
+            <van-field
+                model:value="{{receiverMobile}}"
+                required
+                label="手机号"
+                placeholder="请输入手机号"
+            />
+            <van-field
+                model:value="{{area}}"
+                required
+                label="城市"
+                bind:focus="showArea"
+                placeholder="请选择城市信息"
+            />
+            <van-field
+                model:value="{{receiverAddress}}"
+                required
+                label="地址"
+                placeholder="请输入地址"
+            />
+            <view class="isDefaultDiv">
+                <view class="isDefaultDivTitle" style="padding-left:10px; font-size:13px;">是否默认</view>
+                <van-switch checked="{{isDefault}}" size="20px" bind:change="onIsDefaultHandler" custom-class="isDefaultSwitch"/>
+            </view>
+            
+            <!--新增-->
+            <view class="mt20" style="text-align:center;"><van-button type="info" size="normal" bind:click="addShip">保存地址</van-button></view>
+        </van-cell-group>
+
+        <van-popup
+            show="{{ areaActive }}"
+            bind:close="closeArea"
+            position="bottom"
+            z-index="2001"
+        >
+            <van-area 
+                bind:confirm="confirmArea" 
+                area-list="{{ areaList }}" 
+                bind:cancel="closeArea" />
+        </van-popup>
+    </view>
+</view>

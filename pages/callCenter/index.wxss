@@ -1,0 +1,25 @@
+.callCenter-box {
+    margin: 0 auto;
+    padding-top: 15vh;
+    width: 150px;
+    text-align: center;
+}
+
+.callCenter-box .logo {
+    display: inline-block;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.callCenter-box .list .item {
+    margin-top: 15px;
+}
+
+.callCenter-box .list .item text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #222;
+}

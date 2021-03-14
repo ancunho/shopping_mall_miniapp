@@ -1,0 +1,126 @@
+<view class="container">
+    <!--首页轮播图-->
+    <swiper
+        class="main-banner"
+        indicator-dots="true"
+        autoplay="true"
+        interval="5000"
+        duration="500"
+        indicator-color="rgba(255, 255, 255, .5)"
+        indicator-active-color="#C2002F"
+    >
+        <block wx:for="{{bannerImg}}" wx:key="*this">
+            <swiper-item>
+                <van-image fit="cover" width="100%" height="200px" src="{{item}}"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view  wx:if="{{isOurCustomer}}">
+        <van-tabs active="01">
+            <van-tab title="咖啡豆" name="01">
+                 <!--分类-->
+                 <van-dropdown-menu active-color="#C2002F">
+                    <van-dropdown-item value="{{tab1_value1}}" title="{{tab1_title1}}" options="{{ tab1_option1 }}" bind:change="onLoadDropdownMenu"/>
+                    <!-- <van-dropdown-item value="{{ tab1_value2 }}" options="{{ tab1_option2 }}"/> -->
+                </van-dropdown-menu>
+                <!--列表-->
+                <view class="goods-list">
+                    <!--商品item Start-->
+                    <view class="item" wx:for="{{productList}}" wx:key="key" wx:for-item="item" wx:if="{{ tabShowCountry == 'ALL' || tabShowCountry == item.COUNTRY}}">
+                        <navigator url="/pages/detail/index?productId={{item.PRODUCT_SEQ}}">
+                            <van-image
+                                fit="cover"
+                                width="100%"
+                                height="100px"
+                                radius="5px"
+                                src="{{item.MAIN_IMAGE}}"
+                            />
+                        </navigator>
+                        <text class="title">{{item.PRODUCT_NAME}}</text>
+                        <block wx:if="{{isOurCustomer}}">
+                            <van-button 
+                            data-product-id="{{item.PRODUCT_SEQ}}"
+                            class="button" 
+                            data-product-img="{{item.MAIN_IMAGE}}"
+                            bind:click="onLoadSpec" 
+                            block type="default"
+                            size="normal">选规格</van-button>
+                        </block>
+                    </view>
+                    <!-- // 商品item End-->
+                    
+                </view>
+                
+            </van-tab>
+            <van-tab title="售后服务" name="02">
+                <!--分类-->
+                <van-dropdown-menu active-color="#C2002F">
+                    <van-dropdown-item value="{{ tab2_value1 }}" title="{{tab2_title1}}" options="{{ tab2_option1 }}" bind:change="onLoadDropdownMenu2"/>
+                    <van-dropdown-item value="{{ tab2_value2 }}" title="{{tab2_title2}}" options="{{ tab2_option2 }}" bind:change="onLoadDropdownMenu3"/>
+                </van-dropdown-menu>
+                <!--列表-->
+                <view class="goods-list">
+                    <!--商品item Start-->
+                    <view class="item" wx:for="{{productList2}}" wx:key="key" wx:for-item="item" wx:if="{{ tabShowCategory == 'ALL' || tabShowCategory == item.CATEGORY_ID}}">
+                        <navigator url="/pages/detail/index?productId={{item.PRODUCT_SEQ}}">
+                            <van-image
+                                fit="cover"
+                                width="100%"
+                                height="100px"
+                                radius="2px"
+                                src="{{item.MAIN_IMAGE}}"
+                            />
+                        </navigator>
+                        <text class="title">{{item.PRODUCT_NAME}}</text>
+                        <block wx:if="{{isOurCustomer}}">
+                            <van-button 
+                            data-item="{{item}}"
+                            data-product-id="{{item.PRODUCT_SEQ}}"
+                            class="button" 
+                            data-product-img="{{item.MAIN_IMAGE}}"
+                            bind:click="addCart2" 
+                            block type="default"
+                            size="normal">加入购物车</van-button>
+                        </block>
+                    </view>
+                    <!-- // 商品item End-->
+                    
+                </view>
+            </van-tab>
+        </van-tabs>
+    </view>
+    <view wx:else style="text-align:center; margin-top:20px;">我们会尽快核实您的注册信息</view>
+   
+</view>
+
+<van-popup show="{{ specPopupShow }}" custom-style="width:95%; background:none;">
+    <van-panel title="请选择规格" desc="" status="">
+        <view  class="panelBox">
+            
+           <view style="padding:10px 0;" wx:for="{{specList}}" wx:key="index">
+                <van-radio-group 
+                    value="{{radio}}" 
+                    data-id="{{item.SPEC_SEQ}}" 
+                    data-price="{{item.PRICE}}" 
+                    bind:change="onRadioChange" 
+                    data-item="{{item}}"  style="display:inline;">
+                    <van-radio name="{{item.SPEC_SEQ}}" icon-size="24px">{{item.WEIGHT}}kg</van-radio>
+                </van-radio-group>
+           </view>
+            <van-row style="margin-top:30px;">
+                <van-col span="12" style="color:#C2002F; font-size:30px;">¥ {{initPrice}}</van-col>
+                <van-col span="8" offset="4">
+                    <van-button 
+                        data-item="{{selectItem}}" 
+                        data-product-img="{{specProductImg}}" 
+                        class="button" 
+                        bind:click="addCart" 
+                        type="danger" 
+                        block 
+                        size="small">加入购物车</van-button>
+                </van-col>
+            </van-row>
+        </view>
+    </van-panel>
+    <view class="btnPopupClose"><van-icon name="close" size="50px;" bind:click="onClosePopup" color="#e2e2e2" /></view>
+</van-popup>

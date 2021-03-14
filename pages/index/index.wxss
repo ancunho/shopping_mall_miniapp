@@ -1,0 +1,41 @@
+.main-banner {
+  height: 200px;
+}
+
+.goods-list {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.goods-list .item {
+  position: relative;
+  width: calc(50% - 10px);
+  /* width:calc(100%); */
+  margin-bottom: 30px;
+  padding: 0;
+  border-radius: 2px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.goods-list .item .title {
+  display: block;
+  padding:10px;
+  font-size: 12px;
+}
+
+.goods-list .item .price {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #C2002F;
+}
+
+/* .goods-list .item .button {
+  
+} */
+.btnPopupClose { margin-top:10px; text-align: center;}
+.panelBox { padding: 0 20px 20px 20px;}
+.specItem { padding:5px 0; margin:5px 0;}

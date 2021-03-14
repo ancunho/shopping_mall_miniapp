@@ -1,0 +1,140 @@
+<wxs src="../../utils/substr.wxs" module="tools" />
+
+<view class="container">
+    <!--tab-->
+    <van-tabs active="{{ tabActive }}" bind:click="onClick">
+        <!--待支付-->
+        <van-tab title="待支付" name="tab1" >
+            <van-panel title="{{item.CREATETIME}}" wx:for="{{tab1Item}}" wx:key="*this" header-class="panelHeaderTab1" wx:for-item="item" desc="No.{{item.ORDER_NO}}" status="未支付" use-footer-slot>
+                <view style="padding:10px 20px; overflow:hidden; height:100%;">
+                    <view class="lstOrderItemView" wx:for="{{item.lstOrderItem}}" wx:for-item="orderItem" wx:key="idx">
+                        <van-image
+                            round
+                            width="3rem"
+                            height="3rem"
+                            src="{{orderItem.PRODUCT_IMAGE}}"
+                        />
+                        <view class="lstOrderItemViewTxt">{{tools.sub(orderItem.PRODUCT_NAME)}}</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '01'}}">{{orderItem.QTY}}KG</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '02'}}">数量：{{orderItem.QTY}}</view>
+                        <view class="lstOrderItemViewTxt">单价：{{orderItem.CURRENT_UNIT_PRICE}}元</view>
+                    </view>
+                </view>
+                <view slot="footer" style="text-align:right;">
+                    <view style="display:inline-block; font-size:0.8rem; color:#332E1F; padding-right:30px;">
+                        <view style="display:inline-block" wx:if="{{item.VIP_PAYMENT === 0 || item.VIP_PAYMENT == null || item.VIP_PAYMENT == ''}}">
+                            总价：{{item.PAYMENT}}元
+                        </view>
+                        <view style="display:inline-block" wx:else>
+                            <view style="display:inline-block;">原总价：</view><view style="display:inline-block;text-decoration: line-through;">{{item.PAYMENT}}元</view>
+                            <view style="display:inline-block; margin-left:15px;">折扣价：</view><view style="display:inline-block;">{{item.VIP_PAYMENT}}元</view>
+                        </view>
+                    </view>
+                    <van-button size="normal" data-item="{{item}}" bind:click="onSubmit" plain hairline type="info">继续支付</van-button>
+                </view>
+            </van-panel>
+            
+        </van-tab>
+        <!--待收货-->
+        <van-tab title="待收货" name="tab2">
+            <van-panel title="{{item.CREATETIME}}" wx:for="{{tab2Item}}" wx:key="*this" header-class="panelHeaderTab1" wx:for-item="item" desc="No.{{item.ORDER_NO}}" status="" use-footer-slot>
+                <view style="padding:10px 20px; overflow:hidden; height:100%;">
+                    <view class="lstOrderItemView" wx:for="{{item.lstOrderItem}}" wx:for-item="orderItem" wx:key="idx">
+                        <van-image
+                            round
+                            width="3rem"
+                            height="3rem"
+                            src="{{orderItem.PRODUCT_IMAGE}}"
+                        />
+                        <view class="lstOrderItemViewTxt">{{tools.sub(orderItem.PRODUCT_NAME)}}</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '01'}}">{{orderItem.QTY}}KG</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '02'}}">数量：{{orderItem.QTY}}</view>
+                        <view class="lstOrderItemViewTxt">单价：{{orderItem.CURRENT_UNIT_PRICE}}元</view>
+                    </view>
+                </view>
+                <view slot="footer" style="text-align:right;">
+                    <view style="display:inline-block; font-size:0.8rem; color:#332E1F; padding-right:30px;">
+                        <view style="display:inline-block" wx:if="{{item.VIP_PAYMENT === 0 || item.VIP_PAYMENT == null || item.VIP_PAYMENT == ''}}">
+                            总价：{{item.PAYMENT}}元
+                        </view>
+                        <view style="display:inline-block" wx:else>
+                            <view style="display:inline-block;">原总价：</view><view style="display:inline-block;text-decoration: line-through;">{{item.PAYMENT}}元</view>
+                            <view style="display:inline-block; margin-left:15px;">折扣价：</view><view style="display:inline-block;">{{item.VIP_PAYMENT}}元</view>
+                        </view>
+                    </view>
+                </view>
+            </van-panel>
+        </van-tab>
+        <!--已取消-->
+        <van-tab title="已取消" name="tab3">
+            <van-panel title="{{item.CREATETIME}}" wx:for="{{tab3Item}}" wx:key="*this" header-class="panelHeaderTab1" wx:for-item="item" desc="No.{{item.ORDER_NO}}" status="" use-footer-slot>
+                <view style="padding:10px 20px; overflow:hidden; height:100%;">
+                    <view class="lstOrderItemView" wx:for="{{item.lstOrderItem}}" wx:for-item="orderItem" wx:key="idx">
+                        <van-image
+                            round
+                            width="3rem"
+                            height="3rem"
+                            src="{{orderItem.PRODUCT_IMAGE}}"
+                        />
+                        <view class="lstOrderItemViewTxt">{{tools.sub(orderItem.PRODUCT_NAME)}}</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '01'}}">{{orderItem.QTY}}KG</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '02'}}">数量：{{orderItem.QTY}}</view>
+                        <view class="lstOrderItemViewTxt">单价：{{orderItem.CURRENT_UNIT_PRICE}}元</view>
+                    </view>
+                </view>
+                <view slot="footer" style="text-align:right;">
+                    <view style="display:inline-block; font-size:0.8rem; color:#332E1F; padding-right:30px;">
+                        <view style="display:inline-block" wx:if="{{item.VIP_PAYMENT === 0 || item.VIP_PAYMENT == null || item.VIP_PAYMENT == ''}}">
+                            总价：{{item.PAYMENT}}元
+                        </view>
+                        <view style="display:inline-block" wx:else>
+                            <view style="display:inline-block;">原总价：</view><view style="display:inline-block;text-decoration: line-through;">{{item.PAYMENT}}元</view>
+                            <view style="display:inline-block; margin-left:15px;">折扣价：</view><view style="display:inline-block;">{{item.VIP_PAYMENT}}元</view>
+                        </view>
+                    </view>
+                </view>
+            </van-panel>
+        </van-tab>
+        <!--全部-->
+        <van-tab title="全部" name="tab4">
+            <van-panel title="{{item.CREATETIME}}" wx:for="{{tab4Item}}" wx:key="*this" header-class="panelHeaderTab1" wx:for-item="item" desc="No.{{item.ORDER_NO}}" status="" use-footer-slot>
+                <view style="padding:10px 20px; overflow:hidden; height:100%;">
+                    <view class="lstOrderItemView" wx:for="{{item.lstOrderItem}}" wx:for-item="orderItem" wx:key="idx">
+                        <van-image
+                            round
+                            width="3rem"
+                            height="3rem"
+                            src="{{orderItem.PRODUCT_IMAGE}}"
+                        />
+                        <view class="lstOrderItemViewTxt">{{tools.sub(orderItem.PRODUCT_NAME)}}</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '01'}}">{{orderItem.QTY}}KG</view>
+                        <view class="lstOrderItemViewTxt" wx:if="{{orderItem.ATTRIBUTE == '02'}}">数量：{{orderItem.QTY}}</view>
+                        <view class="lstOrderItemViewTxt">单价：{{orderItem.CURRENT_UNIT_PRICE}}元</view>
+                    </view>
+                </view>
+                <view slot="footer" style="text-align:right;">
+                    <view style="display:inline-block; font-size:0.8rem; color:#332E1F; padding-right:30px;">
+                        <view style="display:inline-block" wx:if="{{item.VIP_PAYMENT === 0 || item.VIP_PAYMENT == null || item.VIP_PAYMENT == ''}}">
+                            总价：{{item.PAYMENT}}元
+                        </view>
+                        <view style="display:inline-block" wx:else>
+                            <view style="display:inline-block;">原总价：</view><view style="display:inline-block;text-decoration: line-through;">{{item.PAYMENT}}元</view>
+                            <view style="display:inline-block; margin-left:15px;">折扣价：</view><view style="display:inline-block;">{{item.VIP_PAYMENT}}元</view>
+                        </view>
+                    </view>
+                    <van-button size="normal" data-item="{{item}}" wx:if="{{item.STATUS == '10'}}" bind:click="onSubmit" plain hairline type="info">继续支付</van-button>
+                </view>
+            </van-panel>
+        </van-tab>
+    </van-tabs>
+</view>
+
+
+<van-popup show="{{ payErrorPopup }}" custom-style="width:95%; background:none;">
+    <van-panel title="支付未成功！" desc="" status="">
+        <view  class="panelBox" style="padding:30px;">
+            支付未成功，请联系客服。 
+        </view>
+    </van-panel>
+    <view class="btnPopupClose" style="margin-top:10px; text-align:center;"><van-icon name="close" size="50px;" bind:click="onClosePopup" color="#e2e2e2" /></view>
+</van-popup>

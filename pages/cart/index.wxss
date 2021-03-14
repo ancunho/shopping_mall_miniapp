@@ -1,0 +1,116 @@
+.cart-box {
+    padding: 20px;
+}
+
+.option-line {
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.option-line .del-button {
+    color: #C2002F;
+}
+
+.cart-list {
+    margin-top: 5px;
+    padding: 0 15px;
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+.cart-list .item {
+    position: relative;
+    padding: 15px 50px 15px 30px ;
+    display: flex;
+}
+
+.cart-list .item+.item {
+    border-top: 1px dashed #ddd;
+}
+
+.cart-list .item .checkbox {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -10px;
+}
+
+.cart-list .item .img {
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.cart-list .item .text {
+    display: block;
+    margin-left: 10px;
+}
+
+.cart-list .item .text .title {
+    display: block;
+    font-size: 12px;
+}
+
+.cart-list .item .text .desc {
+    margin-top: 5px;
+    display: block;
+    font-size: 12px;
+    color: #646566;
+}
+
+.cart-list .item .text .price {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #C2002F;
+}
+
+.cart-list .item .button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -14px;
+}
+
+.submit-box {
+    width: calc(100% - 40px) !important;
+    left: 20px !important;
+    bottom: 60px !important;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+.address-box {
+    position: relative;
+    padding: 15px 50px 15px 15px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.address-box .name {
+    font-size: 15px;
+}
+
+.pay-box .address-box .phone {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.address-box .addr {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.address-box .icon2 {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -12.5px;
+    font-size: 25px;
+    color: #666;
+}

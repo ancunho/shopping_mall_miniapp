@@ -1,0 +1,26 @@
+/**
+** 自定义主题
+** #C2002F   红色
+** #332E1F   黑色
+**/
+page {
+    --button-border-radius: 5px;
+    --button-default-color: #666;
+    --button-default-border-color: #666;
+    --button-danger-background-color: #C2002F;
+    --button-danger-border-color: #C2002F;
+
+    --submit-bar-price-color: #C2002F;
+
+    --checkbox-checked-icon-color: #C2002F;
+
+    --dialog-border-radius: 5px;
+}
+
+/*全局样式*/
+.container {
+    padding-bottom: 70px;
+    background: #f5f5f5;
+    min-height: 100vh;
+    box-sizing: border-box;
+}

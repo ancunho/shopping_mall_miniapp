@@ -1,0 +1,98 @@
+<view class="container">
+    <!--详细轮播图-->
+    <swiper
+        wx:if="{{bannerImg.length > 0}}" 
+        class="detail-banner"
+        indicator-dots="true"
+        autoplay="2000"
+        interval="5000"
+        duration="500"
+        indicator-color="rgba(255, 255, 255, .5)"
+        indicator-active-color="#C2002F"
+    >
+        <block wx:for="{{bannerImg}}" wx:key="this">
+            <swiper-item>
+                <van-image fit="cover" width="100%" height="300px" src="{{item}}"/>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!--标题，价格，规格，内容-->
+    <view class="detail-box">
+        <view class="title-line">
+            <text class="title">{{name}}</text>
+            <!-- <text class="price">¥ 100</text> -->
+        </view>
+        <view class="param">
+            <text style="display:none;">产品分类: pro</text>
+            <text>品种: {{variety}}</text>
+            <text>处理法: {{treatment}}</text>
+            <text>杯测风味: {{flavor}}</text>
+            <text style="display:none;">含水率: xxx</text>
+            <text style="display:none;">密度g/1: xxx</text>
+        </view>
+        <view class="content">
+            <rich-text nodes="{{detail}}"></rich-text>  
+        </view>
+    </view>
+
+    <!--按钮-->
+    <van-goods-action>
+        <navigator url="/pages/callCenter/index">
+            <van-goods-action-icon icon="chat-o" text="客服" />
+        </navigator>
+        <van-goods-action-icon icon="cart-o" text="购物车" info="{{cartCount}}" bind:click="onClickToCart" />
+        <van-goods-action-button 
+            wx:if="{{attributeFlag == '01'}}"
+            data-product-id="{{id}}"
+            data-product-img="{{mainImage}}"
+            bind:click="onLoadSpec"  
+            color="#202020" 
+            text="选择规格" />
+        <van-goods-action-button 
+            wx:if="{{attributeFlag == '02'}}"
+            data-product-id="{{id}}"
+            data-product-img="{{mainImage}}"
+            data-item="{{itemSelected}}"
+            bind:click="addCart2"
+            color="#202020" 
+            text="加入购物车" />
+    </van-goods-action>
+        
+        
+</view>
+
+
+
+
+<van-popup show="{{ specPopupShow }}" custom-style="width:95%; background:none;">
+    <van-panel title="请选择规格" desc="" status="">
+        <view  class="panelBox">
+            
+           <view style="padding:10px 0;" wx:for="{{specList}}" wx:key="index">
+                <van-radio-group 
+                    value="{{radio}}" 
+                    data-id="{{item.SPEC_SEQ}}" 
+                    data-price="{{item.PRICE}}" 
+                    bind:change="onRadioChange" 
+                    data-item="{{item}}"  style="display:inline;"> 
+                    <van-radio name="{{item.SPEC_SEQ}}" icon-size="24px">{{item.WEIGHT}}kg</van-radio>
+                </van-radio-group>
+           </view>
+            <van-row style="margin-top:30px;">
+                <van-col span="12" style="color:#C2002F; font-size:30px;">¥ {{initPrice}}</van-col>
+                <van-col span="8" offset="4">
+                    <van-button 
+                        data-item="{{selectItem}}" 
+                        data-product-img="{{specProductImg}}" 
+                        class="button" 
+                        bind:click="addCart" 
+                        type="danger" 
+                        block 
+                        size="small">加入购物车</van-button>
+                </van-col>
+            </van-row>
+        </view>
+    </van-panel>
+    <view class="btnPopupClose"><van-icon name="close" size="50px;" bind:click="onClosePopup" color="#e2e2e2" /></view>
+</van-popup>

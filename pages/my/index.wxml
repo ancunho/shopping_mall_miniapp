@@ -1,0 +1,66 @@
+<view class="container">
+    <view class="my-box">
+        <!--个人信息-->
+        <view class="user-info" style="text-align:center">
+            <view class="userAvatarImage"><open-data type="userAvatarUrl"></open-data></view>
+            
+        </view>
+        <view class="text" style="text-align:center;"><open-data type="userNickName"></open-data></view>
+        
+        
+        <!--我的订单-->
+        <view class="item-box">
+            <text class="title">我的订单</text>
+            <view class="item-list">
+                <view class="item">
+                    <navigator url="/pages/order/index?t=tab1" class="link">
+                        <van-icon class="icon" name="balance-list-o"/>
+                        待支付
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/pages/order/index?t=tab2" class="link">
+                        <van-icon class="icon" name="logistics"/>
+                        待收货
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/pages/order/index?t=tab3" class="link">
+                        <van-icon class="icon" name="failure"/>
+                        已取消
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/pages/order/index?t=tab4" class="link">
+                        <van-icon class="icon" name="orders-o"/>
+                        全部订单
+                    </navigator>
+                </view>
+            </view>
+        </view>
+
+        <!--常用功能-->
+        <view class="item-box">
+            <text class="title">常用功能</text>
+            <view class="item-list">
+                <view class="item">
+                    <navigator url="/pages/address/index" class="link">
+                        <van-icon class="icon" name="location-o"/>
+                        收货地址
+                    </navigator>
+                </view>
+                <view class="item">
+                    <navigator url="/pages/callCenter/index" class="link">
+                        <van-icon class="icon" name="service-o"/>
+                        联系客服
+                    </navigator>
+                </view>
+            </view>
+        </view>
+
+        <view style="margin-top:10px">
+            <van-button color="#7232dd" block size="normal" bind:click="onClickRegister">注册/变更账号</van-button>
+        </view>
+
+    </view>
+</view>

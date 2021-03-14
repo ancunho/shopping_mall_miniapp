@@ -1,0 +1,64 @@
+.address-box {
+    padding: 20px;
+    margin-bottom:20px;
+}
+
+.address-box .list {
+    position: relative;
+    padding: 15px 50px 15px 15px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.address-box .list+.list {
+    margin-top: 3px;
+}
+
+.address-box .list .name {
+    font-size: 15px;
+}
+
+.address-box .list .phone {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.address-box .list .addr {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.address-box .list .icon2 {
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    padding:15px;
+    margin-top: -30px;
+    font-size: 25px;
+    color: #666;
+}
+
+.address-box .list .van-tag {
+    margin-right: 5px;
+}
+
+.address-box .button {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.address-box .van-button {
+    width: 150px;
+}
+
+.van-cell-group { margin-top: 15px; }
+.shippingbox { display:inline-block;}
+.mt20 { margin-top:20px;}
+.isDefaultDiv { overflow:hidden; height:40px; background:white;}
+.isDefaultDiv .isDefaultDivTitle { display:inline-block; width:100px;}
+.isDefaultSwitch { margin-top:10px;}
+
+
+

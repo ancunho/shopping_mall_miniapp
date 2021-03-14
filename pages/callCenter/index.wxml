@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="callCenter-box">
+        <view class="logo">
+            <image style="width: 70px;" mode="widthFix" src="/static/images/logo.jpg"></image>
+        </view>
+        <view class="list">
+            <view class="item">
+                <text>微信号：{{wechat1}}</text>
+                    <van-button type="danger" size="normal" class="button" bind:click="copy">复制微信号</van-button>
+            </view>
+        </view>
+    </view>
+</view>
